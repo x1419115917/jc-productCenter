@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <title>产品中心</title>
+        <meta http-equiv="Content-type" content="text/html;" charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0">
+        
+        <!-- <link rel="shortcut icon" href="" type="image/png" /> -->
+        <!-- bootstrap 基础样式 -->
+        <link type="text/css" rel="stylesheet" href="./lib/css/components-rounded.min.css" />
+        <link type="text/css" rel="stylesheet" href="./global/plugins/bootstrap/css/bootstrap.min.css" />
+        <!-- 基础js库 -->
+        <script type="text/javascript" src="./global/plugins/jquery1-12-4.min.js"></script>
+        <script type="text/javascript" src="./global/plugins/bootstrap/js/bootstrap.min.js"></script>
+        <!--主题-->
+        <link type="text/css" rel="stylesheet" href="./lib/layout.css" />
+        <link type="text/css" rel="stylesheet" href="./lib/css/plugins-default.min.css" />
+        <!--公共方法,样式-->
+        <link type="text/css" rel="stylesheet" href="./global/css/common.css" />
+        <script type="text/javascript" src="./global/js/common.js"></script>
+        <script type="text/javascript" src="./global/js/commonevent.js"></script>
+        <script type="text/javascript" src="./global/js/JCPublicUtil.js"></script>
+        <script type="text/javascript" src="./global/js/validate.js"></script>
+        <script src="./js/configURL.js"></script>
+        <!-- 表格插件-->
+        <link type="text/css" rel="stylesheet" href="./global/plugins/bootstrap-table/bootstrap-table.min.css" />
+        <script type="text/javascript" src="./global/plugins/bootstrap-table/bootstrap-table.min.js"></script>
+        <script src="./global/plugins/bootstrap-table/bootstrap-table-locale-all.js"></script>
+        <!--弹出框-->
+        <script type="text/javascript" src="./global/plugins/bootbox/bootbox.min.js"></script>
+        <!--弹出提示气泡-->
+        <link type="text/css" rel="stylesheet" href="./global/plugins/bootstrap-toastr/toastr.min.css" />
+        <script type="text/javascript" src="./global/plugins/bootstrap-toastr/toastr.min.js"></script>
+        <!--上传图片-->
+        <script type="text/javascript" src="./global/plugins/bootstrap-fileinput/bootstrap-fileinput.min.js"></script>
+        <link type="text/css" rel="stylesheet" href="./global/plugins/bootstrap-fileinput/bootstrap-fileinput.min.css" />
+        <!--自定义JS,CSS-->
+        <link type="text/css" rel="stylesheet" href="./css/applicationManage/addApplication.css" />
+        <script type="text/javascript" src="./js/applicationManage/applicationManage.js"></script>
+        
+    </head>
+    <script>
+        var userId="";
+        var teamId="";
+        var companyId ="";
+    </script>
+	<body class="page-container-bg-solid page-header-menu-fixed">
+            <div class="page-wrapper">
+                    <!-- <div class="page-wrapper-row">
+                        <div class="page-wrapper-top">
+                            <div class="page-header">
+                                <div class="page-header-top">
+                                    <div class="container-fluid">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+                    <!--内容加载区开始-->
+                    <div class="page-wrapper-row" id="pageContent">
+                        <div class="page-wrapper-middle" id="applicationManage">
+                            <div class="page-head">
+                                <div class="container-fluid">
+                                    <h4 class="pull-left">应用管理</h4>
+                                    <div class="pull-right"><a role="button" id="addApp" href="static/applictionManage/addApplication.html" style="background:#286090;" class="btn btn-primary" >新增</a></div>
+                                </div>
+                            </div>
+                            <!--<div class="page-content">-->
+                                <div class="container-fluid">
+                                    <div class="page-content-inner">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="portlet light">
+                                                    <table id="appManageTable" style="table-layout:fixed;" class="table-hover commonTipClass"></table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            <!--</div>-->
+                        </div>
+                    </div>
+                    <!--内容加载区结束-->
+             
+                </div>
+    </body>
+    <script>
+        $(function(){
+            ApplicationManage.init();
+            var token=JCPublicUtil.GetRequest(window.location).token;
+            $("#addApp").attr("href","static/applictionManage/addApplication.html?token="+token);
+        })
+    </script>
+</html>

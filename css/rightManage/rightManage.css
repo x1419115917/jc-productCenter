@@ -1,0 +1,5 @@
+#rightManage .productSelect .sel {
+    display: inline-block;
+    width: 120px;
+    margin-left: 10px;
+}

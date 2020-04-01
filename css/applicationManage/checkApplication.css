@@ -1,0 +1,8 @@
+#checkApplication .suppotPlatForm label{
+    font-weight: normal;
+    margin-right: 15px;
+}
+#checkApplication .iconUpload .file-thumbnail-footer{
+    display: none !important;
+}
+.none {display: none !important;}

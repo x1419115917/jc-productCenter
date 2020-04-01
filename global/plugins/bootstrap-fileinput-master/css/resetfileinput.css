@@ -1,0 +1,7 @@
+.file-drop-zone{border:none;margin:0;padding:0;height:70px;}
+.krajee-default.file-preview-frame{border:none;box-shadow:none;padding:5px;margin:0;}
+.krajee-default.file-preview-frame:not(.file-preview-error):hover{box-shadow:none;}
+.krajee-default.file-preview-frame .kv-file-content{height:60px;}
+.file-drop-zone-title{padding:20px 0px;display: none;}
+.file-preview{width:100px;height:90px;}
+.kv-fileinput-error.file-error-message{width:350px;}

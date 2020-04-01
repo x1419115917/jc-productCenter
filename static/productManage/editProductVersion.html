@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <title>产品中心</title>
+        <meta http-equiv="Content-type" content="text/html;" charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0">
+        
+        <!-- <link rel="shortcut icon" href="" type="image/png" /> -->
+        <!-- bootstrap 基础样式 -->
+        <link type="text/css" rel="stylesheet" href="../../lib/css/components-rounded.min.css" />
+        <link type="text/css" rel="stylesheet" href="../../global/plugins/bootstrap/css/bootstrap.min.css" />
+        <!-- 基础js库 -->
+        <script type="text/javascript" src="../../global/plugins/jquery1-12-4.min.js"></script>
+        <script type="text/javascript" src="../../global/plugins/bootstrap/js/bootstrap.min.js"></script>
+        <!--主题-->
+        <link type="text/css" rel="stylesheet" href="../../lib/layout.css" />
+        <link type="text/css" rel="stylesheet" href="../../lib/css/plugins-default.min.css" />
+        <!--公共方法,样式-->
+        <link type="text/css" rel="stylesheet" href="../../global/css/common.css" />
+        <script type="text/javascript" src="../../global/js/common.js"></script>
+        <script type="text/javascript" src="../../global/js/commonevent.js"></script>
+        <script type="text/javascript" src="../../global/js/JCPublicUtil.js"></script>
+        <script type="text/javascript" src="../../global/js/validate.js"></script>
+        <script src="../../js/configURL.js"></script>
+        <!-- 表格插件-->
+        <link type="text/css" rel="stylesheet" href="../../global/plugins/bootstrap-table/bootstrap-table.min.css" />
+        <script type="text/javascript" src="../../global/plugins/bootstrap-table/bootstrap-table.min.js"></script>
+        <script src="../../global/plugins/bootstrap-table/bootstrap-table-locale-all.js"></script>
+        <!--弹出框-->
+        <script type="text/javascript" src="../../global/plugins/bootbox/bootbox.min.js"></script>
+        <!--弹出提示气泡-->
+        <link type="text/css" rel="stylesheet" href="../../global/plugins/bootstrap-toastr/toastr.min.css" />
+        <script type="text/javascript" src="../../global/plugins/bootstrap-toastr/toastr.min.js"></script>
+        <!--上传图片-->
+        <script type="text/javascript" src="../../global/plugins/bootstrap-fileinput/bootstrap-fileinput.min.js"></script>
+        <link type="text/css" rel="stylesheet" href="../../global/plugins/bootstrap-fileinput/bootstrap-fileinput.min.css" />
+        <!--树形ztree-->
+        <link rel="stylesheet" href="../../lib/js/zTree/ztreeStyle.css">
+        <script type="text/javascript" src="../../lib/js/zTree/jquery.ztree.core-3.5.js"></script>
+        <script type="text/javascript" src="../../lib/js/zTree/ztree.excheck-3.5.min.js"></script>
+        <!--时间下拉框-->
+        <link rel="stylesheet" href="../../global/plugins/bootstrap-datetimepicker/css/bootstrap-datetimepicker.css">
+        <script type="text/javascript" src="../../global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
+        <script type="text/javascript"  src="../../global/plugins/bootstrap-datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+        <!--自定义JS,CSS-->
+        <!-- <link type="text/css" rel="stylesheet" href="../../css/applicationManage/applicationManage.css" /> -->
+        <script type="text/javascript" src="../../js/productManage/editProductVersion.js"></script>
+        
+	</head>
+	<body class="page-container-bg-solid page-header-menu-fixed">
+            <div class="page-wrapper">
+                    <!-- <div class="page-wrapper-row">
+                        <div class="page-wrapper-top">
+                            <div class="page-header">
+                                <div class="page-header-top">
+                                    <div class="container-fluid">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+                    <!--内容加载区开始-->
+                    <div class="page-wrapper-row" id="pageContent">
+                        <div class="page-wrapper-middle" id="editProductVersion">
+                            <div class="page-head">
+                                <div class="container-fluid">
+                                    <h4 class="pull-left">编辑产品</h4>
+                                    <button class="btn btn-default pull-right" style="color: #0099ff; border: 1px solid #0099ff;" href="javascript:;" onclick="javascript:window.history.go(-1)">< 返回</button>
+                                </div>
+                            </div>
+                            <!--<div class="page-content">-->
+                                <div class="container-fluid">
+                                    <div class="page-content-inner">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="portlet light">
+                                                    <!-- Nav tabs -->
+                                                    <div>
+                                                        <ul class="nav nav-tabs" role="tablist">
+                                                            <li role="presentation" class="active"><a href="#basicData" aria-controls="basicData" role="tab" data-toggle="tab">基本信息</a></li>
+                                                            <li role="presentation"><a href="#dataControl" aria-controls="dataControl" role="tab" data-toggle="tab" onclick="EditProductVersion.dataControl()">数据控制</a></li>
+                                                            <li role="presentation"><a href="#funcControl" aria-controls="funcControl" role="tab" data-toggle="tab" onclick="EditProductVersion.funcControl()">功能控制</a></li>
+                                                        </ul>
+                                                        <!-- Tab panes -->
+                                                        <div class="tab-content">
+                                                            <div role="tabpanel" class="tab-pane active" id="basicData">
+                                                                <form id="addApplicationForm">
+                                                                    <div class="row margin-top-20 margin-bottom-20 form-horizontal">
+                                                                        <label class="control-label col-md-1"><span class="required"> * </span>版本编号</label>
+                                                                        <div class="col-md-4 code"></div>
+                                                                    </div>
+                                                                    <div class="row margin-bottom-20 form-horizontal">
+                                                                        <label class="control-label col-md-1"><span class="required"> * </span>产品名称</label>
+                                                                        <div class="col-md-4">
+                                                                            <input type="text" class="form-control" maxlength="40" name="name" id="name" autocomplete="off" data-validate="require char1_20">
+                                                                            <div class="errorTip">必填项</div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row margin-bottom-20 form-horizontal">
+                                                                        <label class="control-label col-md-1"><span class="required"> * </span>产品模式</label>
+                                                                        <div class="col-md-4 proMode">
+                                                                            <label class="radio-inline">
+                                                                                <input type="radio" name="modelPro" id="netPro" checked value="1"> 网售产品
+                                                                            </label>
+                                                                            <label class="radio-inline">
+                                                                                <input type="radio" name="modelPro" id="customPro" value="2"> 定制产品
+                                                                            </label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row margin-bottom-20 form-horizontal">
+                                                                        <label class="control-label col-md-1"><span class="required"> * </span>产品类型</label>
+                                                                        <div class="col-md-4">
+                                                                            <select class="bs-select form-control proType" disabled id="proType" data-validate="require">
+                                                                                <option value="1">版本</option>
+                                                                                <option value="2">套餐</option>
+                                                                            </select>
+                                                                            <div class="errorTip">必填项</div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row margin-bottom-20 form-horizontal">
+                                                                        <label class="control-label col-md-1"><span class="required"> * </span>所属应用</label>
+                                                                        <div class="col-md-4">
+                                                                            <select class="bs-select form-control belongApp" disabled id="belongApp" data-validate="require">
+                                                                            </select>
+                                                                            <div class="errorTip">必填项</div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row margin-bottom-20 form-horizontal">
+                                                                        <label class="control-label col-md-1"><span class="required"> * </span>所属平台</label>
+                                                                        <div class="col-md-4 suppotPlatForm">
+                                                                            <select class="bs-select form-control belongPlatform" disabled id="belongPlatform" data-validate="require">
+                                                                            </select>
+                                                                            <div class="errorTip">必填项</div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row margin-bottom-20 form-horizontal">
+                                                                        <label class="control-label col-md-1">备注</label>
+                                                                        <div class="col-md-4">
+                                                                            <textarea class="form-control" id="remarks" style="height:96px;resize:none" maxlength="200"></textarea>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row margin-bottom-20 form-horizontal">
+                                                                        <div class="col-md-2 col-md-offset-1">
+                                                                            <button type="button" class="btn btn-info btn-block"style="background:#286090;" onclick="EditProductVersion.save()">保存</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+                                                            <div role="tabpanel" class="tab-pane" id="dataControl">
+                                                                <div class="margin-top-20 margin-bottom-20">
+                                                                    <button type="button" class="btn btn-primary"style="background:#286090;" onclick="EditProductVersion.dataControlSave()">保存设置</button>
+                                                                </div>
+                                                                <table id="dataControlTable" style="table-layout:fixed;" class="table-hover commonTipClass"></table>
+                                                            </div>
+                                                            <div role="tabpanel" class="tab-pane" id="funcControl">
+                                                                <div class="margin-top-20 margin-bottom-20">
+                                                                    <button type="button" class="btn btn-primary"style="background:#286090;" onclick="EditProductVersion.funcSave()">保存设置</button>
+                                                                </div>
+                                                                <div>
+                                                                    <ul id="treeDemo" class="ztree"></ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            <!--</div>-->
+                        </div>
+                    </div>
+                    <!--内容加载区结束-->
+             
+                </div>
+    </body>
+    <script>
+        $(function(){
+            EditProductVersion.init();
+        })
+    </script>
+</html>

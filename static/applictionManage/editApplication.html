@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <title>产品中心</title>
+        <meta http-equiv="Content-type" content="text/html;" charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0">
+        
+        <!-- <link rel="shortcut icon" href="" type="image/png" /> -->
+        <!-- bootstrap 基础样式 -->
+        <link type="text/css" rel="stylesheet" href="../../lib/css/components-rounded.min.css" />
+        <link type="text/css" rel="stylesheet" href="../../global/plugins/bootstrap/css/bootstrap.min.css" />
+        <!-- 基础js库 -->
+        <script type="text/javascript" src="../../global/plugins/jquery1-12-4.min.js"></script>
+        <script type="text/javascript" src="../../global/plugins/bootstrap/js/bootstrap.min.js"></script>
+        <!--主题-->
+        <link type="text/css" rel="stylesheet" href="../../lib/layout.css" />
+        <link type="text/css" rel="stylesheet" href="../../lib/css/plugins-default.min.css" />
+        <!--公共方法,样式-->
+        <link type="text/css" rel="stylesheet" href="../../global/css/common.css" />
+        <script type="text/javascript" src="../../global/js/common.js"></script>
+        <script type="text/javascript" src="../../global/js/commonevent.js"></script>
+        <script type="text/javascript" src="../../global/js/JCPublicUtil.js"></script>
+        <script type="text/javascript" src="../../global/js/validate.js"></script>
+        <script type="text/javascript" src="../../js/configURL.js"></script>
+        <!-- 表格插件-->
+        <link type="text/css" rel="stylesheet" href="../../global/plugins/bootstrap-table/bootstrap-table.min.css" />
+        <script type="text/javascript" src="../../global/plugins/bootstrap-table/bootstrap-table.min.js"></script>
+        <script src="../../global/plugins/bootstrap-table/bootstrap-table-locale-all.js"></script>
+        <!--弹出框-->
+        <script type="text/javascript" src="../../global/plugins/bootbox/bootbox.min.js"></script>
+        <!--弹出提示气泡-->
+        <link type="text/css" rel="stylesheet" href="../../global/plugins/bootstrap-toastr/toastr.min.css" />
+        <script type="text/javascript" src="../../global/plugins/bootstrap-toastr/toastr.min.js"></script>
+        <!--上传图片-->
+        <link type="text/css" rel="stylesheet" href="../../global/plugins/bootstrap-fileinput-master/fileinput.min.css" />
+        <!-- <link type="text/css" rel="stylesheet" href="../../global/plugins/bootstrap-fileinput/bootstrap-fileinput.min.css" /> -->
+        <script type="text/javascript" src="../../global/plugins/bootstrap-fileinput/bootstrap-fileinput.min.js"></script>
+        <script type="text/javascript" src="../../global/plugins/bootstrap-fileinput-master/js/fileinput4.4.3.min.js"></script>
+        <!--树形ztree-->
+        <link rel="stylesheet" href="../../lib/js/zTree/ztreeStyle.css">
+        <script type="text/javascript" src="../../lib/js/zTree/jquery.ztree.core-3.5.js"></script>
+        <script type="text/javascript" src="../../lib/js/zTree/ztree.excheck-3.5.min.js"></script>
+        <!--时间下拉框-->
+        <link rel="stylesheet" href="../../global/plugins/bootstrap-datetimepicker/css/bootstrap-datetimepicker.css">
+        <script type="text/javascript" src="../../global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js"></script>
+        <script type="text/javascript"  src="../../global/plugins/bootstrap-datetimepicker/js/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+        <!--自定义JS,CSS-->
+        <link type="text/css" rel="stylesheet" href="../../css/applicationManage/editApplication.css" />
+        <script type="text/javascript" src="../../js/applicationManage/editApplication.js"></script>
+	</head>
+	<body class="page-container-bg-solid page-header-menu-fixed">
+            <div class="page-wrapper">
+                    <!-- <div class="page-wrapper-row">
+                        <div class="page-wrapper-top">
+                            <div class="page-header">
+                                <div class="page-header-top">
+                                    <div class="container-fluid">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+                    <!--内容加载区开始-->
+                    <div class="page-wrapper-row" id="pageContent">
+                        <div class="page-wrapper-middle" id="editApplication">
+                            <div class="page-head">
+                                <div class="container-fluid">
+                                    <h4 class="pull-left">编辑应用</h4>
+                                    <button class="btn btn-default pull-right" style="color: #0099ff; border: 1px solid #0099ff;" href="javascript:;" onclick="javascript:window.history.go(-1)">< 返回</button>
+                                </div>
+                            </div>
+                            <!--<div class="page-content">-->
+                                <div class="container-fluid">
+                                    <div class="page-content-inner">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="portlet light">
+                                                    <!-- Nav tabs -->
+                                                    <div>
+                                                        <ul class="nav nav-tabs" role="tablist">
+                                                            <li role="presentation" class="active"><a href="#basicData" aria-controls="basicData" role="tab" data-toggle="tab">基本信息</a></li>
+                                                            <li role="presentation" class="none"><a href="#dataControl" aria-controls="dataControl" role="tab" data-toggle="tab" onclick="EditApplication.dataControl()">数据控制</a></li>
+                                                            <li role="presentation" class="none"><a href="#funcControl" aria-controls="funcControl" role="tab" data-toggle="tab" onclick="EditApplication.funcControl()">功能控制</a></li>
+                                                        </ul>
+                                                        <!-- Tab panes -->
+                                                        <div class="tab-content">
+                                                            <div role="tabpanel" class="tab-pane active" id="basicData">
+                                                                <form id="addApplicationForm">
+                                                                    <div class="row margin-top-20 margin-bottom-20 form-horizontal">
+                                                                        <label class="control-label col-md-1" style="width: 9%;">应用标识：</label>
+                                                                        <div class="col-md-4">
+                                                                            <p class="appSign"></p>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row margin-top-20 margin-bottom-20 form-horizontal">
+                                                                        <label class="control-label col-md-1" style="width: 9%;">安全密钥：</label>
+                                                                        <div class="col-md-4 secretKey">
+                                                                            <p style="word-break:break-word;"></p>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row margin-bottom-20 form-horizontal">
+                                                                        <label class="control-label col-md-1" style="width: 9%;"><span class="required"> * </span>应用名称：</label>
+                                                                        <div class="col-md-4">
+                                                                            <input type="text" class="form-control" onkeydown="if(event.keyCode==32) return false" maxlength="40" name="appName" id="appName" autocomplete="off" data-validate="require">
+                                                                            <div class="errorTip">必填项</div>
+                                                                        </div>
+                                                                    </div>
+                                                                    
+                                                                    <div class="row margin-bottom-20 form-horizontal">
+                                                                        <label class="control-label col-md-1" style="width: 9%;"><span class="required"> * </span>应用类型：</label>
+                                                                        <div class="col-md-4">
+                                                                            <select class="bs-select form-control category" disabled id="appCategory">
+                                                                                <option value="1">应用</option>
+                                                                                <option value="2">平台</option>
+                                                                                <option value="3">接口</option>
+                                                                            </select>
+                                                                            <div class="errorTip">必填项</div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row margin-bottom-20 form-horizontal">
+                                                                        <label class="control-label col-md-1" style="width: 9%;"><span class="required"> * </span>回调路径：</label>
+                                                                        <div class="col-md-4">
+                                                                            <input type="text" class="form-control" onkeydown="if(event.keyCode==32) return false" maxlength="150" name="callbackPath" id="callbackPath" autocomplete="off" data-validate="require">
+                                                                            <div class="errorTip">必填项</div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row margin-bottom-20 form-horizontal">
+                                                                        <label class="control-label col-md-1" style="width: 9%;">系统标识：</label>
+                                                                        <div class="col-md-4">
+                                                                            <input type="text" class="form-control" maxlength="40" name="systemIdentity" id="systemIdentity" autocomplete="off">
+                                                                            <div class="errorTip">必填项</div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row margin-bottom-20 form-horizontal">
+                                                                        <label class="control-label col-md-1" style="width: 9%;">支持平台：</label>
+                                                                        <div class="col-md-5 suppotPlatForm">
+                                                                            <label><input type="checkbox" id="android" name="Android" value="" onchange="EditApplication.supportChecked()">Android</label>
+                                                                            <label><input type="checkbox" id="ios" name="IOS" value="" onchange="EditApplication.supportChecked()">IOS</label>
+                                                                            <label><input type="checkbox" id="browser" name="Browse/WEB" value="" onchange="EditApplication.supportChecked()">Browse/WEB</label>
+                                                                            <label><input type="checkbox" id="win" name="Windows" value="" onchange="EditApplication.supportChecked()">Windows</label>
+                                                                            <label><input type="checkbox" id="mac" name="Mac" value="" onchange="EditApplication.supportChecked()">Mac</label>
+                                                                            <label><input type="checkbox" id="other" name="其他" value="" onchange="EditApplication.supportChecked()">其他</label>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row margin-bottom-20 form-horizontal">
+                                                                        <label class="control-label col-md-1" style="width: 9%;">产品图标：</label>
+                                                                        <div class="col-md-4 iconUpload">
+                                                                            <input type="file" id="img_file" data-id="">
+                                                                            <!-- <button type="button" class="btn btn-info">上传</button> -->
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row margin-bottom-20 form-horizontal">
+                                                                        <label class="control-label col-md-1" style="width: 9%;">应用说明：</label>
+                                                                        <div class="col-md-4">
+                                                                            <textarea class="form-control" id="appDecribe" style="height:96px;resize:none" maxlength="200"></textarea>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row margin-bottom-20 form-horizontal">
+                                                                        <div class="col-md-2 col-md-offset-1">
+                                                                            <button type="button" class="btn btn-info btn-block" style="background:#286090;" onclick="EditApplication.save()">保存</button>
+                                                                        </div>
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+                                                            <div role="tabpanel" class="tab-pane" id="dataControl">
+                                                                <div class="page-head margin-top-20">
+                                                                    <h5 class="pull-left">数据控制</h5>
+                                                                    <div class="pull-right"><a role="button" style="background:#286090;" class="btn btn-primary" onclick="EditApplication.add()">新增</a></div>
+                                                                </div>
+                                                                <div class="page-content">
+                                                                    <table id="dataControlTable" style="table-layout:fixed;" class="table-hover commonTipClass"></table>
+                                                                </div>
+                                                            </div>
+                                                            <div role="tabpanel" class="tab-pane" id="funcControl">
+                                                                <div class="row margin-top-20">
+                                                                    <p class="col-md-1" style="width: 10%;">导入功能表</p>
+                                                                    <div class="col-md-1 icon" style="width: 10%;margin-top: -8px;"><input type="file" id="xml_file" data-id=""></div>
+                                                                    <div class="col-md-7"><a href="javascript:;" onclick="EditApplication.exportFuns()">导出</a></div>
+                                                                </div>
+                                                                <div>
+                                                                    <ul id="treeDemo" class="ztree"></ul>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            <!--</div>-->
+                        </div>
+                    </div>
+                    <!--内容加载区结束-->
+             
+                </div>
+    </body>
+    <script>
+        $(function(){
+            EditApplication.init();
+        })
+    </script>
+</html>

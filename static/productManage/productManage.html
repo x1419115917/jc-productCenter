@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+	<head>
+        <title>产品中心</title>
+        <meta http-equiv="Content-type" content="text/html;" charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="maximum-scale=1.0,minimum-scale=1.0,user-scalable=0,width=device-width,initial-scale=1.0">
+        
+        <!-- <link rel="shortcut icon" href="" type="image/png" /> -->
+        <!-- bootstrap 基础样式 -->
+        <link type="text/css" rel="stylesheet" href="../../lib/css/components-rounded.min.css" />
+        <link type="text/css" rel="stylesheet" href="../../global/plugins/bootstrap/css/bootstrap.min.css" />
+        <!-- 基础js库 -->
+        <script type="text/javascript" src="../../global/plugins/jquery1-12-4.min.js"></script>
+        <script type="text/javascript" src="../../global/plugins/bootstrap/js/bootstrap.min.js"></script>
+        <!--主题-->
+        <link type="text/css" rel="stylesheet" href="../../lib/layout.css" />
+        <link type="text/css" rel="stylesheet" href="../../lib/css/plugins-default.min.css" />
+        <!--公共方法,样式-->
+        <link type="text/css" rel="stylesheet" href="../../global/css/common.css" />
+        <script type="text/javascript" src="../../global/js/common.js"></script>
+        <script type="text/javascript" src="../../global/js/commonevent.js"></script>
+        <script type="text/javascript" src="../../global/js/JCPublicUtil.js"></script>
+        <script type="text/javascript" src="../../global/js/validate.js"></script>
+        <script src="../../js/configURL.js"></script>
+        <!-- 表格插件-->
+        <link type="text/css" rel="stylesheet" href="../../global/plugins/bootstrap-table/bootstrap-table.min.css" />
+        <script type="text/javascript" src="../../global/plugins/bootstrap-table/bootstrap-table.min.js"></script>
+        <script src="../../global/plugins/bootstrap-table/bootstrap-table-locale-all.js"></script>
+        <!--弹出框-->
+        <script type="text/javascript" src="../../global/plugins/bootbox/bootbox.min.js"></script>
+        <!--弹出提示气泡-->
+        <link type="text/css" rel="stylesheet" href="../../global/plugins/bootstrap-toastr/toastr.min.css" />
+        <script type="text/javascript" src="../../global/plugins/bootstrap-toastr/toastr.min.js"></script>
+        <!--上传图片-->
+        <script type="text/javascript" src="../../global/plugins/bootstrap-fileinput/bootstrap-fileinput.min.js"></script>
+        <link type="text/css" rel="stylesheet" href="../../global/plugins/bootstrap-fileinput/bootstrap-fileinput.min.css" />
+        <!--自定义JS,CSS-->
+        <link type="text/css" rel="stylesheet" href="../../css/productManage/productManage.css" />
+        <script type="text/javascript" src="../../js/productManage/productManage.js"></script>
+        
+	</head>
+	<body class="page-container-bg-solid page-header-menu-fixed">
+            <div class="page-wrapper">
+                    <!-- <div class="page-wrapper-row">
+                        <div class="page-wrapper-top">
+                            <div class="page-header">
+                                <div class="page-header-top">
+                                    <div class="container-fluid">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+                    <!--内容加载区开始-->
+                    <div class="page-wrapper-row" id="pageContent">
+                        <div class="page-wrapper-middle" id="productManage">
+                            <div class="page-head">
+                                <div class="container-fluid">
+                                    <h4 class="pull-left">产品管理</h4>
+                                </div>
+                            </div>
+                            <!--<div class="page-content">-->
+                                <div class="container-fluid">
+                                    <div class="page-content-inner">
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="portlet light">
+                                                    <ul class="nav nav-tabs" role="tablist">
+                                                        <li role="presentation" class="active"><a href="#proDifine" aria-controls="proDifine" role="tab" data-toggle="tab" onclick="ProductManage.findProductList(1)">产品定义</a></li>
+                                                        <li role="presentation"><a href="#proBuffer" aria-controls="proBuffer" role="tab" data-toggle="tab" onclick="ProductManage.findProductList(2)">产品缓冲</a></li>
+                                                        <li role="presentation"><a href="#proPublish" aria-controls="proPublish" role="tab" data-toggle="tab" onclick="ProductManage.findProductList(3)">产品发布</a></li>
+                                                    </ul>
+                                                    <div class="pull-right newAdd"><a role="button" id="addPro" href="../productManage/addProduct.html"style="background:#286090;margin-top:15px;" class="btn btn-primary" >新增</a></div>
+                                                    <div class="tab-content">
+                                                        <div role="tabpanel" class="tab-pane active" id="proDifine">
+                                                            <div class="margin-top-20 margin-bottom-20 row productSelect">
+                                                                <div class="col-md-2" style="width: 200px;">
+                                                                    <span>类型</span>
+                                                                    <select class="form-control sel productType" onchange="ProductManage.findProductList(1)">
+                                                                        <option value="0">全部</option>
+                                                                        <option value="1">版本</option>
+                                                                        <option value="2">套餐</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="col-md-2" style="width: 200px;">
+                                                                    <span>平台</span>
+                                                                    <select class="form-control sel productPlatform" onchange="ProductManage.findProductList(1)">
+                                                                        <option value="0">全部</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="col-md-2" style="width: 200px;">
+                                                                    <span>应用</span>
+                                                                    <select class="form-control sel productApp" onchange="ProductManage.findProductList(1)">
+                                                                        <option value="0">全部</option>
+                                                                    </select>
+                                                                </div>
+                                                                
+                                                            </div>
+                                                            <table id="proManageTable" style="table-layout:fixed;" class="table-hover"></table>
+                                                        </div>
+                                                        <div role="tabpanel" class="tab-pane" id="proBuffer">
+                                                            <div class="margin-top-20 margin-bottom-20 row productSelect">
+                                                                <div class="col-md-2" style="width: 200px;">
+                                                                    <span>类型</span>
+                                                                    <select class="form-control sel productType" onchange="ProductManage.findProductList(2)">
+                                                                        <option value="0">全部</option>
+                                                                        <option value="1">版本</option>
+                                                                        <option value="2">套餐</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="col-md-2" style="width: 200px;">
+                                                                    <span>平台</span>
+                                                                    <select class="form-control sel productPlatform" onchange="ProductManage.findProductList(2)">
+                                                                        <option value="0">全部</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="col-md-2" style="width: 200px;">
+                                                                    <span>应用</span>
+                                                                    <select class="form-control sel productApp" onchange="ProductManage.findProductList(2)">
+                                                                        <option value="0">全部</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <table id="proBufferTable" style="table-layout:fixed;" class="table-hover"></table>
+                                                        </div>
+                                                        <div role="tabpanel" class="tab-pane" id="proPublish">
+                                                            <div class="margin-top-20 margin-bottom-20 row productSelect">
+                                                                <div class="col-md-2" style="width: 200px;">
+                                                                    <span>类型</span>
+                                                                    <select class="form-control sel productType" onchange="ProductManage.findProductList(3)">
+                                                                        <option value="0">全部</option>
+                                                                        <option value="1">版本</option>
+                                                                        <option value="2">套餐</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="col-md-2" style="width: 200px;">
+                                                                    <span>平台</span>
+                                                                    <select class="form-control sel productPlatform" onchange="ProductManage.findProductList(3)">
+                                                                        <option value="0">全部</option>
+                                                                    </select>
+                                                                </div>
+                                                                <div class="col-md-2" style="width: 200px;">
+                                                                    <span>应用</span>
+                                                                    <select class="form-control sel productApp" onchange="ProductManage.findProductList(3)">
+                                                                        <option value="0">全部</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <table id="proPublishTable" style="table-layout:fixed;" class="table-hover"></table>
+                                                        </div>
+                                                    </div>
+                                                   
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            <!--</div>-->
+                        </div>
+                    </div>
+                    <!--内容加载区结束-->
+             
+                </div>
+    </body>
+    <script>
+        $(function(){
+            ProductManage.init();
+            var token=JCPublicUtil.GetRequest(window.location).token;
+            $("#addPro").attr("href","../productManage/addProduct.html?token="+token);
+        })
+    </script>
+</html>
